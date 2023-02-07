@@ -16,6 +16,8 @@ jobs:
     - uses: actions/checkout@v3
     - name: Download YC CLI
       run: curl -sSL https://storage.yandexcloud.net/yandexcloud-yc/install.sh | bash
+    - name: Restart shell
+      run: source "/home/runner/.bashrc"
     - name: Init YC CLI
       run: yc init -t ${{ env.YC_AUTH_KEY }}
     - name: Docker login
