@@ -8,20 +8,19 @@ on:
 
 jobs:
   build:
-    env:
-      DOCKER_TAG: $(date +%s)
-      DOCKER_NAME: cr.yandex/${{ vars.YC_REGISRTY_ID }}/${{ vars.YC_DOCKER_IMAGE_NAME }}
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v3
-    - name: Download YC CLI
-      run: curl -sSL https://storage.yandexcloud.net/yandexcloud-yc/install.sh | bash
-    - name: Init YC CLI
-      shell: sh
-      run: yc init -t ${{ env.YC_AUTH_KEY }}
-    - name: Docker login
-      run: docker login -u ${{ vars.DOCKER_LOGIN }} -p ${{ vars.DOCKER_PASSWORD }}
-    - name: Build the Docker image
-      run: docker build . --file Dockerfile --tag ${{ env.DOCKER_NAME }}/${{ env.DOCKER_TAG }}
-    - name: Push the Docker image
-      run: docker push ${{ env.DOCKER_NAME }}/${{ env.DOCKER_TAG }}
+    - name: Login to Yandex Cloud Container Registry
+      id: login-cr
+      uses: yc-actions/yc-cr-login@v1
+      with:
+        yc-sa-json-credentials: ${{ secrets.YC_SA_JSON_CREDENTIALS }}
+
+    - name: Build, tag, and push image to Yandex Cloud Container Registry
+      env:
+        CR_REGISTRY: ${{ secrets.YC_REGISRTY_ID }}
+        CR_REPOSITORY: ${{ vars.YC_DOCKER_REPOSITORY }}
+        IMAGE_TAG: ${{ github.sha }}
+      run: |
+        docker build -t cr.yandex/$CR_REGISTRY/$CR_REPOSITORY:$IMAGE_TAG .
+        docker push cr.yandex/$CR_REGISTRY/$CR_REPOSITORY:$IMAGE_TAG
