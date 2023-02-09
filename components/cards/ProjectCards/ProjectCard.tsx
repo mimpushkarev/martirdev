@@ -5,8 +5,8 @@ import { ProjectCardType } from "./types";
 
 const ProjectCard: ProjectCardType = ({ project }) => {
     return (
-        <div>
-            <div className="w-64 tablet:w-[20.75rem] desktop:w-[37rem] h-45 tablet:h-[15.5rem] desktop:h-[26rem]">
+        <div className="w-full tablet:w-1/2 desktop:w-1/3">
+            <div className="aspect-[3/2]">
                 <Image src={project.image} alt="Главная страница проекта" />
             </div>
             <div className="text-base font-bold">{project.title}</div>

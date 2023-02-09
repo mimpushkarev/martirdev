@@ -6,7 +6,7 @@ interface Props {
 
 const SectionTitle = ({ title }: Props) => {
     return (
-        <div className="inline-block w-auto text-[2rem] bg-black text-white font-bold">
+        <div className="inline-block mb-8 desktop:mb-16 text-[2rem] bg-black text-white font-bold">
             {title}
         </div>
     );

@@ -10,6 +10,9 @@ module.exports = {
       'desktop': '1024px',
     },
     extend: {
+      aspectRatio: {
+        '3/2': '3 / 2',
+      },
 
       colors:{
         'color-red': '#D60404',

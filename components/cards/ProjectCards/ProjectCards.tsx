@@ -33,7 +33,7 @@ const PROJECTS: ProjectsType = [
 
 const ProjectCards = () => {
     return (
-        <div className="flex flex-1 flex-col gap-y-6 mt-8 tablet:flex-row tablet:flex-wrap tablet:gap-4 desktop:mt-12 desktop:gap-8">
+        <div className="flex space-6 flex-wrap tablet:space-4 desktop:space-8">
             {PROJECTS.map((project) => (
                 <ProjectCard project={project} key={project.id} />
             ))}

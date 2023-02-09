@@ -10,10 +10,9 @@ const SECTION_TITLE = {
 const ProjectSection = () => {
     return (
         <div className="flex">
-            <Section
-                title={SECTION_TITLE.title}
-                children={<ProjectCards />}
-            ></Section>
+            <Section title={SECTION_TITLE.title}>
+                <ProjectCards />
+            </Section>
         </div>
     );
 };
