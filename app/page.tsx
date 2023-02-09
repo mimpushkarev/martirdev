@@ -2,7 +2,9 @@ import { memo } from "react";
 
 import MainSection from "@components/sections/Main/MainSection";
 
-const MainPage = () => {
+import { MainPageType } from "./types";
+
+const MainPage: MainPageType = () => {
     return (
         <>
             <MainSection />
