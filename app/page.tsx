@@ -1,6 +1,6 @@
 import { memo } from "react";
 
-import MainSection from "@components/sections/Main/MainSection";
+import MainSection from "@components/sections/Main";
 
 import { MainPageType } from "./types";
 

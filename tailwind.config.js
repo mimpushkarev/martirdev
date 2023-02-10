@@ -20,5 +20,19 @@ module.exports = {
       }
     },
   },
-  plugins: [],
+  plugins: [
+    function({ addVariant }) {
+      addVariant('children', '&>*')
+    }
+  ],
+  safelist: [
+    {
+      pattern: /-m-(1|2|3|4|5|6)/,
+      variants: ['tablet', 'desktop']
+    },
+    {
+      pattern: /p-(1|2|3|4|5|6)/,
+      variants: ['children']
+    },
+  ]
 }

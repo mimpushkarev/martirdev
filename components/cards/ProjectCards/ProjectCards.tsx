@@ -1,9 +1,11 @@
 import { memo } from "react";
 
+import projectPic from "@public/projects/ecopragmat.png";
+import Box from "@components/layout/Box";
+
 import ProjectCard from "./ProjectCard";
 import { ProjectsType } from "./types";
 
-import projectPic from "@public/projects/ecoexp.png";
 
 const PROJECTS: ProjectsType = [
     {
@@ -33,11 +35,11 @@ const PROJECTS: ProjectsType = [
 
 const ProjectCards = () => {
     return (
-        <div className="flex space-6 flex-wrap tablet:space-4 desktop:space-8">
+        <Box gap={{phone: 3, tablet: 2, desktop: 4}} wrap>
             {PROJECTS.map((project) => (
                 <ProjectCard project={project} key={project.id} />
             ))}
-        </div>
+        </Box>
     );
 };
 
