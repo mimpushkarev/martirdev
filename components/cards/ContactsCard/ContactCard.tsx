@@ -1,9 +1,11 @@
 import { memo } from "react";
 import Link from "next/link";
 
+import Box from "@components/layout/Box";
+
 const ContactCard = ({ contact }) => {
     return (
-        <div className="flex flex-row flex-wrap gap-x-6 tablet:gap-x-4 mb-6 tablet:mb-4">
+        <div className="flex flex-wrap gap-x-6 tablet:gap-x-4 mb-6 tablet:mb-4">
             <div className="text-xl min-w-full tablet:min-w-[12.5rem]">
                 {contact.title}
             </div>

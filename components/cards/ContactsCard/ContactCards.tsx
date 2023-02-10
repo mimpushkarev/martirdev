@@ -1,6 +1,7 @@
 import { memo } from "react";
 
-import { PhoneConverter } from "utils/PhoneConverter";
+import { phoneConverter } from "@utils/phoneConverter";
+
 import ContactCard from "./ContactCard";
 import { ContactsType } from "./types";
 
@@ -8,7 +9,7 @@ const CONTACTS: ContactsType = [
     {
         id: "0",
         title: "Телефон",
-        contact: PhoneConverter("+79921558068"),
+        contact: phoneConverter("+79921558068"),
     },
 
     {
@@ -28,7 +29,7 @@ const CONTACTS: ContactsType = [
 
 const ContactCards = () => {
     return (
-        <div className="flex-column">
+        <div>
             {CONTACTS.map((contact) => (
                 <ContactCard contact={contact} key={contact.id} />
             ))}

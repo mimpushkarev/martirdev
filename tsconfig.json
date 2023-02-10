@@ -21,6 +21,7 @@
     ],
     "paths": {
       "@components/*": ["./components/*"],
+      "@utils/*": ["./utils/*"],
       "@public/*": ["./public/*"],
       "@app/*":[".app/*"],
     }
