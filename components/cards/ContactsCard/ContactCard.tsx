@@ -12,6 +12,7 @@ const ContactCard = ({ contact }) => {
                     <Link
                         href={contact.link}
                         className="text-color-red underline"
+                        target={"_blank"}
                     >
                         {contact.contact}
                     </Link>
